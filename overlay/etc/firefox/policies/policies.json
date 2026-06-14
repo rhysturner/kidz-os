@@ -1,0 +1,17 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "DisableDeveloperTools": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": true,
+    "DisableForgetButton": true,
+    "DisablePrivateBrowsing": true,
+    "DisableProfileImport": true,
+    "DontCheckDefaultBrowser": true,
+    "BlockAboutConfig": true,
+    "Homepage": {
+      "URL": "https://pbskids.org",
+      "Locked": true
+    }
+  }
+}
