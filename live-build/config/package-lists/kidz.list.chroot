@@ -1,0 +1,14 @@
+lightdm
+openbox
+xorg
+xserver-xorg-core
+python3
+python3-pyqt6
+alsa-utils
+iptables
+ipset
+iptables-persistent
+firefox-esr
+tuxpaint
+scratch
+gcompris-qt

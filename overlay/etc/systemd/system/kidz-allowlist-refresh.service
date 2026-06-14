@@ -1,0 +1,9 @@
+[Unit]
+Description=Refresh Kidz OS web allowlist
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kidz-refresh-allowlist.sh
+ExecStartPost=/usr/local/bin/kidz-apply-firewall.sh

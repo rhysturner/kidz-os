@@ -1,0 +1,7 @@
+#!/bin/sh
+xset -dpms
+xset s off
+xset s noblank
+
+/usr/local/bin/kidz-session-timer.sh &
+/usr/bin/python3 /usr/local/bin/kidz-launcher.py &
