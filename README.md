@@ -68,7 +68,7 @@ sudo ./scripts/install-overlay.sh /mnt/kidz-root
 
 ### Option B: build a bootable ISO with `live-build`
 
-Install the build dependencies:
+Install the build dependencies on the Debian or Ubuntu release you plan to target, and verify package names before building because distro packaging can differ.
 
 ```bash
 sudo apt-get update
