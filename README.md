@@ -5,7 +5,7 @@ A kid-friendly Ubuntu/Debian derivative overlay for ages 5-10.
 ## Repository layout
 
 ```text
-/home/runner/work/kidz-os/kidz-os/rhysturner/kidz-os/
+./
 ├── overlay/
 │   ├── etc/
 │   │   ├── firefox/policies/policies.json
@@ -49,19 +49,21 @@ A kid-friendly Ubuntu/Debian derivative overlay for ages 5-10.
 
 ## Installation
 
+Clone the repository and run commands from the repository root unless noted otherwise.
+
 ### Option A: apply overlay to an installed system
 
 Copy the overlay into a target root and run the post-install script:
 
 ```bash
-sudo /home/runner/work/kidz-os/kidz-os/rhysturner/kidz-os/scripts/install-overlay.sh /
+sudo ./scripts/install-overlay.sh /
 sudo reboot
 ```
 
 To apply to a mounted root filesystem instead of the current host:
 
 ```bash
-sudo /home/runner/work/kidz-os/kidz-os/rhysturner/kidz-os/scripts/install-overlay.sh /mnt/kidz-root
+sudo ./scripts/install-overlay.sh /mnt/kidz-root
 ```
 
 ### Option B: build a bootable ISO with `live-build`
@@ -79,10 +81,12 @@ Create a build workspace and seed it with this repository's package list and ove
 mkdir -p ~/kidz-live/config/includes.chroot ~/kidz-live/config/package-lists
 cd ~/kidz-live
 lb config
-cp /home/runner/work/kidz-os/kidz-os/rhysturner/kidz-os/live-build/config/package-lists/kidz.list.chroot config/package-lists/
-cp -a /home/runner/work/kidz-os/kidz-os/rhysturner/kidz-os/overlay/* config/includes.chroot/
+cp /path/to/kidz-os/live-build/config/package-lists/kidz.list.chroot config/package-lists/
+cp -a /path/to/kidz-os/overlay/* config/includes.chroot/
 sudo lb build
 ```
+
+Replace `/path/to/kidz-os` with the location of your clone.
 
 The resulting ISO can be written to USB media with `dd`, Rufus, Balena Etcher, or Ventoy.
 
