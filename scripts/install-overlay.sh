@@ -33,11 +33,6 @@ for executable in "${EXECUTABLES[@]}"; do
   chmod +x "$executable"
 done
 
-if [ ! -x "$POSTINSTALL_SCRIPT" ]; then
-  echo "Post-install script '$POSTINSTALL_SCRIPT' is missing or not executable" >&2
-  exit 1
-fi
-
 if [ "$TARGET_ROOT" = "/" ]; then
   if ! "$POSTINSTALL_SCRIPT"; then
     echo "Overlay copied, but post-install failed on the current system" >&2

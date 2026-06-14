@@ -2,8 +2,8 @@
 Description=Refresh Kidz OS web allowlist every 15 minutes
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=15min
+OnBootSec=1m
+OnUnitActiveSec=15m
 Unit=kidz-allowlist-refresh.service
 
 [Install]
