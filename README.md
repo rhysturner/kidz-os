@@ -75,7 +75,7 @@ sudo apt-get update
 sudo apt-get install -y live-build debootstrap squashfs-tools xorriso rsync
 ```
 
-Replace `KIDZ_OS_REPO` with the location of your clone before running the copy commands below.
+Set `KIDZ_OS_REPO` to the location of your clone before running the copy commands below.
 
 ```bash
 export KIDZ_OS_REPO=/path/to/kidz-os

@@ -6,4 +6,5 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/kidz-refresh-allowlist.sh
+# Firewall application is intentionally fatal so stale or missing rules are surfaced immediately.
 ExecStartPost=/usr/local/bin/kidz-apply-firewall.sh

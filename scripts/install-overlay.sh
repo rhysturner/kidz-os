@@ -10,7 +10,10 @@ if [ ! -d "$TARGET_ROOT" ]; then
   exit 1
 fi
 
-rsync -a "$REPO_ROOT/overlay/" "$TARGET_ROOT/"
+if ! rsync -a "$REPO_ROOT/overlay/" "$TARGET_ROOT/"; then
+  echo "Failed to copy overlay into '$TARGET_ROOT'" >&2
+  exit 1
+fi
 
 EXECUTABLES=(
   "$TARGET_ROOT/usr/local/bin/kidz-postinstall.sh"
