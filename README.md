@@ -75,18 +75,17 @@ sudo apt-get update
 sudo apt-get install -y live-build debootstrap squashfs-tools xorriso rsync
 ```
 
-Create a build workspace and seed it with this repository's package list and overlay:
+Replace `KIDZ_OS_REPO` with the location of your clone before running the copy commands below.
 
 ```bash
+export KIDZ_OS_REPO=/path/to/kidz-os
 mkdir -p ~/kidz-live/config/includes.chroot ~/kidz-live/config/package-lists
 cd ~/kidz-live
 lb config
-cp /path/to/kidz-os/live-build/config/package-lists/kidz.list.chroot config/package-lists/
-cp -a /path/to/kidz-os/overlay/* config/includes.chroot/
+cp "$KIDZ_OS_REPO/live-build/config/package-lists/kidz.list.chroot" config/package-lists/
+cp -a "$KIDZ_OS_REPO/overlay/." config/includes.chroot/
 sudo lb build
 ```
-
-Replace `/path/to/kidz-os` with the location of your clone.
 
 The resulting ISO can be written to USB media with `dd`, Rufus, Balena Etcher, or Ventoy.
 

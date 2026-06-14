@@ -20,10 +20,22 @@ EXECUTABLES=(
   "$TARGET_ROOT/usr/local/bin/kidz-apply-firewall.sh"
   "$TARGET_ROOT/home/guest/.config/openbox/autostart"
 )
-chmod +x "${EXECUTABLES[@]}"
+for executable in "${EXECUTABLES[@]}"; do
+  if [ ! -e "$executable" ]; then
+    echo "Expected overlay file '$executable' is missing after sync" >&2
+    exit 1
+  fi
+  chmod +x "$executable"
+done
 
 if [ "$TARGET_ROOT" = "/" ]; then
-  /usr/local/bin/kidz-postinstall.sh
+  if ! /usr/local/bin/kidz-postinstall.sh; then
+    echo "Overlay copied, but post-install failed on the current system" >&2
+    exit 1
+  fi
 else
-  chroot "$TARGET_ROOT" /usr/local/bin/kidz-postinstall.sh
+  if ! chroot "$TARGET_ROOT" /usr/local/bin/kidz-postinstall.sh; then
+    echo "Overlay copied, but post-install failed inside chroot '$TARGET_ROOT'" >&2
+    exit 1
+  fi
 fi
